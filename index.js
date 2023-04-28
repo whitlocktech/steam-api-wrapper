@@ -34,8 +34,58 @@ async function getNewsForApp(appId, count, maxLength) {
     }
 }
 
+async function getGlobalAchievementPercentageForApp(appId) {
+    try {
+        const response = await axios.get(`https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=${appId}&format=json`)
+        return response.achievementpercentages.achievements
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+async function getFriendList(steamApiKey, steamId) {
+    try {
+        const response = await axios.get(`https://api.steapowered.com/ISteamUser/GetFriendList/v0001/?key=${steamApiKey}&steamid=${steamId}&format=json`)
+        return response.friendslist.friends
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+async function getPlayerAchievements(appId, steamApiKey, steamId) {
+    try {
+        const response = await axios.get(`https://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid=${appId}&key=${steamApiKey}&steamid=${steamId}&format=json`)
+        return response.playerstats.achievements
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+async function getUserStatsForGame(appId, steamApiKey, steamId) {
+    try {
+        const response = await axios.get(`https://api.steampowered.com/ISteamUser/Stats/GetUserStatsForGame/v0002/?appid=${appId}&key=${steamApiKey}&steamid=${steamId}`)
+        return response.playerstats.achievements
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+async function getOwnedGames(steamApiKey, steamId) {
+    try {
+        const response = await axios.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${steamApiKey}&steamid=${steamId}&format=json`)
+        return response.response.games
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 module.exports = {
     getProfile,
     getMultipleProfiles,
-    getNewsForApp
+    getNewsForApp,
+    getGlobalAchievementPercentageForApp,
+    getFriendList,
+    getPlayerAchievements,
+    getUserStatsForGame,
+    getOwnedGames
 }

@@ -1,8 +1,8 @@
 const axios = require('axios');
 
-async function getProfile(STEAM_API_KEY, steamId) {
+async function getProfile(steamApiKey, steamId) {
     try {
-        const response = await axios.get(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${STEAM_API_KEY}&steamids=${steamId}&format=json`);
+        const response = await axios.get(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamApiKey}&steamids=${steamId}&format=json`);
         console.log(response.data.response.players);
         return
     } catch (error) {
@@ -10,11 +10,11 @@ async function getProfile(STEAM_API_KEY, steamId) {
     }
 }
 
-async function getMultipleProfiles(STEAM_API_KEY, steamIds) {
+async function getMultipleProfiles(steamApiKey, steamIds) {
     const steamIDS = steamIds.join(',')
     console.log(steamIDS)
     try {
-        const response = await axios.get(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${STEAM_API_KEY}&steamids=${steamIDS}&format=json`)
+        const response = await axios.get(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamApiKey}&steamids=${steamIDS}&format=json`)
         console.log(response.data.response.players)
         return
     } catch (error) {
@@ -22,9 +22,9 @@ async function getMultipleProfiles(STEAM_API_KEY, steamIds) {
     }
 }
 
-getProfile(STEAM_API_KEY, steamId);
+getProfile(steamApiKey, steamId);
 
-getMultipleProfiles(STEAM_API_KEY, steamIds)
+getMultipleProfiles(steamApiKey, steamIds)
 
 module.export = {
     getProfile,

@@ -1,6 +1,6 @@
 {
   "name": "@whitlocktech/steam-api-wrapper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This is a wrapper for the Steam API. The reason for it is to make it easily reusable and convinent.",
   "main": "index.js",
   "scripts": {

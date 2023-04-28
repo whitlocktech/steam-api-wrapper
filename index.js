@@ -26,7 +26,7 @@ getProfile(steamApiKey, steamId);
 
 getMultipleProfiles(steamApiKey, steamIds)
 
-module.export = {
+module.exports = {
     getProfile,
     getMultipleProfiles
 }

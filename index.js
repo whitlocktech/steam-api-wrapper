@@ -4,7 +4,7 @@ async function getProfile(steamApiKey, steamId) {
     try {
         const response = await axios.get(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamApiKey}&steamids=${steamId}&format=json`);
         console.log(response.data.response.players);
-        return
+        return response.data.response.players
     } catch (error) {
         console.error(error);
     }
@@ -16,7 +16,7 @@ async function getMultipleProfiles(steamApiKey, steamIds) {
     try {
         const response = await axios.get(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamApiKey}&steamids=${steamIDS}&format=json`)
         console.log(response.data.response.players)
-        return
+        return response.data.response.players
     } catch (error) {
         console.error(error)
     }

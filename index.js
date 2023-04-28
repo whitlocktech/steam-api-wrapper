@@ -22,10 +22,6 @@ async function getMultipleProfiles(steamApiKey, steamIds) {
     }
 }
 
-getProfile(steamApiKey, steamId);
-
-getMultipleProfiles(steamApiKey, steamIds)
-
 module.exports = {
     getProfile,
     getMultipleProfiles

@@ -22,7 +22,20 @@ async function getMultipleProfiles(steamApiKey, steamIds) {
     }
 }
 
+async function getNewsForApp(appId, count, maxLength) {
+    newsCount = count || 3
+    totalLength = maxLength || 300
+    console.log(appId)
+    try {
+        const response = await axios.get(`https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=${appId}&count=${newsCount}&maxlength=${totalLength}&format=json`)
+        return response.appnews.appid.newsitems
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 module.exports = {
     getProfile,
-    getMultipleProfiles
+    getMultipleProfiles,
+    getNewsForApp
 }

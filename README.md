@@ -1,7 +1,7 @@
 ## README
 ![Known Vulnerabilities](https://snyk.io/test/github/whitlocktech/steam-api-wrapper/badge.svg)]
 
-(https://snyk.io/test/github/{username}/{repo}
+(https://snyk.io/test/github/whitlocktech/steam-api-wrapper)
 
 This is a wrapper for the steam api. I am working to add more functionality to it.
 
